@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+<!--Extended base html file-->
+
+{% block content %}
+    <!--Header-->
+	<header class="masthead text-white text-center">
+	  <div class="container">
+	  	<br>
+		<img class="img-fluid mb-5 d-block mx-auto" src="static/blog/img/icon.png" alt="">
+		<h1 class="text-uppercase mb-0">Covid-19 Stories</h1>
+		<hr class="star-light">
+	  </div>
+	</header>
+
+
+	<!--ABOUT-->
+	<section class="text-white mb-0 margin" id="about">
+	  	<div class="text-center mt-4">
+        <div class="row justify-content-center margin">
+            <div class="col-8">
+                <h3 style="color:black">Category Archives</h3>
+                {% for story in stories%}
+                <p style="color:black"> {{story.health}} </p>
+                {% endfor %}           
+                 </div>
+        </div>
+		</div>
+	</section>
+
+{% endblock %}

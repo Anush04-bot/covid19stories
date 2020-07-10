@@ -1,0 +1,50 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <br>
+        <div class="row justify-content-center margin">
+            <div class="col-7">
+                <!--Custom Api form-->
+                <form method="POST" class="form-inline">
+                    {% csrf_token %}
+                    <div>
+                    <label class="my-1 mr-2" for="age">Age</label>
+                    <select name="age" class="custom-select mb-2 mr-sm-2" id="age">
+                        <option selected>Age 18-24</option>
+                        <option value="m">Age 25-34</option>
+                        <option value="f">Age 45-54</option>
+                        <option value="f">Age 55-64</option>
+
+                    </select>
+                    </div>
+                    <div>
+                    <label class="my-1 mr-2" for="health">Underlying Health Conditions</label>
+                    <select name="health" class="custom-select mb-2 mr-sm-2" id="health">
+                        <option selected>Asthma</option>
+                        <option value="m">Not known underlying health condition</option>
+                        <option value="f">others</option>
+                    </select>
+                    </div>
+</div>
+</div>
+                  <div class="row justify-content-center margin">
+                     <div class="pflink">
+                      <a href="{% url 'story' %}" input type="submit" class="submit">Submit</a>
+                     </div>
+                  </div>                    <!--<button type="button" class="btn btn-primary mb-2 btn-sub"><a href="{% url 'search' %}">Submit</a></button>-->
+                     
+                </form>
+            
+        
+        <div class="row justify-content-center margin">
+            <br>
+            <div class="col-8">
+                <h3 style="color:black">Stories from around the World</h3>
+                {% for story in stories%}
+                <p style="color:black"> {{story.message}} </p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
